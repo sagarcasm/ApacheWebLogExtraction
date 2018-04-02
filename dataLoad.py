@@ -38,7 +38,7 @@ class webLogs:
 
 
             logDataDict = {'remote_addr':ip,'time_local':dateTime,'request_type':methods,'request_resource':requestResource,'request_url':requestUrl,\
-                           'request_status': status,'bytes_sent':bytesTransfered,'http_referer':protocol,'http_user_agent':http_user_agent,'raw_log':line,}
+                           'request_status': status,'bytes_sent':bytesTransfered,'http_referer':protocol,'http_user_agent':http_user_agent,'raw_log':line}
 
             self.insertQuery(logDataDict)
 
@@ -57,7 +57,7 @@ class webLogs:
 
         query =  "INSERT INTO weblogs (remote_addr, time_local, request_type,request_resource, request_url,request_status,bytes_sent, http_referer, http_user_agent,raw_log) \
         VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
-
+        
         try:
             cur.execute(query, (
             str(data['remote_addr']), str(data['time_local']), str(data['request_type']), str(data['request_resource']),
